@@ -1,0 +1,24 @@
+{
+  "name": "reaio",
+  "version": "0.1.0",
+  "description": "",
+  "author": "liang",
+  "main": "src/index.js",
+  "ruff": {
+    "boards": {
+      "ruff-mbd-v1": "^4.0.0",
+      "*": "*"
+    },
+    "dependencies": {
+      "ruff-v1-infrared-receiver": "^0.3.4",
+      "ruff-v1-infrared-sender": "^0.3.4",
+      "lcd1602-pcf8574a-hd44780": "^0.2.3",
+      "dht11": "^0.3.2",
+      "mqtt": "^0.1.1"
+    },
+    "devDependencies": {}
+  },
+  "dependencies": {
+    "mqtt": "^1.14.1"
+  }
+}
