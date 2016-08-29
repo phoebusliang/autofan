@@ -190,3 +190,18 @@ rap 会给我们自动计算出硬件的布局，也就是连接方式。
 ### buid app
 
 运行app, 输入temp 对边界温度进行干预。 这样空调不单单可以对一个边界温度进行相应,我们也可以在外边利用网络去设置空调的边界温度,让硬件重新进行运算
+
+        func callMQTT(val:String) {
+            // set MQTT Client Configuration
+            let mqttConfig = MQTTConfig(clientId: "cid", host: "xx.xx.xx.xx", port: 1883, keepAlive: 60)
+            mqttConfig.onPublishCallback = { messageId in
+                NSLog("published (mid=\(messageId))")
+            }
+            mqttConfig.onMessageCallback = { mqttMessage in
+                NSLog("MQTT Message received: payload=\(mqttMessage.payloadString)")
+            }
+            
+            // create new MQTT Connection
+            let mqttClient = MQTT.newConnection(mqttConfig)
+            mqttClient.publishString(val, topic: "topic", qos: 0, retain: true)
+        }
