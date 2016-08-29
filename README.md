@@ -211,3 +211,34 @@ rap 会给我们自动计算出硬件的布局，也就是连接方式。
             mqttClient.publishString(val, topic: "topic", qos: 0, retain: true)
         }
         
+### MQTT authentication
+
+生成密码文件并且添加用户:
+
+    mosquitto_passwd -c path_to_file/psw guest
+
+
+最简单的方式,使用用户名、密码, 这个需要在mosquitto.conf中进行配置:
+
+    password_file path_to_file/psw
+    allow_anonymous false
+    
+配置完成后,需要在板子的mqtt客户端连接时使用:
+
+     var client = mqtt.connect('mqtt://xx.xx.xx.xx:xxxx', {
+                username: 'xx',
+                password: 'xx'
+            });
+    
+而在iOS APP中也需要使用:
+
+    let mqttConfig = MQTTConfig(clientId: "cid", host: "xx.xx.xx.xx", port: xxxx, keepAlive: 60)
+    mqttConfig.mqttAuthOpts = MQTTAuthOpts(username: "xx", password: "xx")
+     
+   
+   
+   
+    
+
+
+        
