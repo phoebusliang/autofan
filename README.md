@@ -6,6 +6,11 @@
 而真正的智能家居和IoT的基础是`智能设备的自运算`和`人为干预`。这个例子就是基于这两点考虑。另外,对于资源受限
 设备(大多数智能硬件)考虑,基于HTTP协议的通信势必会造成很大的负担,所以这里我们采用在IoT领域非常流行的通信协议-MQTT。
 
+另附两篇文章:
+http://mp.weixin.qq.com/s?__biz=MzI1NTM3Mzk2NQ==&mid=2247483656&idx=1&sn=0db24181588ae8c425c2d4cd83fa6758#rd
+
+http://mp.weixin.qq.com/s?__biz=MzI1NTM3Mzk2NQ==&mid=2247483667&idx=1&sn=93598f7ca5bc083e2db9872479983964#rd
+
 1. 获得温度传感器DHT-11的温度值
 
 2. 通过温度值自运算,在某一种边界值的情况下,触发红外发射装置,给空调发送信号
@@ -205,3 +210,4 @@ rap 会给我们自动计算出硬件的布局，也就是连接方式。
             let mqttClient = MQTT.newConnection(mqttConfig)
             mqttClient.publishString(val, topic: "topic", qos: 0, retain: true)
         }
+        
